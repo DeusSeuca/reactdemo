@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logo.svg';
+import GlobalNav from './componets/GlobalNav';
+import Main from './componets/Main';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './assets/css/App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <p>简单的主页</p>
-      </div>
+      <Router>
+        <div className="App">
+          <GlobalNav />
+          <Route exact path="/" component={Main}/>
+        </div>
+      </Router>
     );
   }
 }
