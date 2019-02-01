@@ -42,10 +42,10 @@ export default class Chat extends Component<IChatPorps,IChatState> {
 
     render() {
         return (
-        <div>
-            <div className="chat-container">
+        <div className="chat-container">
+            <div>
                 <h1>普通聊天室</h1>
-                <Input.TextArea rows={30} value={this.state.msg} />
+                <Input.TextArea value={this.state.msg} autosize={{minRows: 10, maxRows: 10}} />
                 <Input.Search
                     placeholder="输入发送的内容:"
                     enterButton="发送"
