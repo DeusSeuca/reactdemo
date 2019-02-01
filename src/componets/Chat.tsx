@@ -12,7 +12,7 @@ interface IChatState{
 }
 
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl("http://localhost:5000/chathub")
+  .withUrl("http://localhost:4000/chathub")
   .build();
 
 export default class Chat extends Component<IChatPorps,IChatState> {
