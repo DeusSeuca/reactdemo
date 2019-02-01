@@ -3,7 +3,17 @@ import '../assets/css/Main.css';
 import {Link} from 'react-router-dom';
 import {Button} from 'antd';
 
-export default class Main extends Component {
+export default class Main extends Component<IMainPorps,IMainState> {
+
+  static defaultProps:IMainPorps;
+
+  state={
+  }
+
+  constructor(porps:IMainPorps){
+    super(porps);
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,4 +21,13 @@ export default class Main extends Component {
       </div>
     );
   }
+}
+
+interface IMainPorps{
+}
+
+interface IMainState{
+}
+
+Main.defaultProps={
 }
