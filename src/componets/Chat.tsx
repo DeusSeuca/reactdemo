@@ -12,7 +12,10 @@ interface IChatState{
 }
 
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl("http://localhost:4000/chathub")
+  .withUrl("http://localhost:4000/chathub",{
+      skipNegotiation:true,
+      transport: signalR.HttpTransportType.WebSockets
+  })
   .build();
 
 export default class Chat extends Component<IChatPorps,IChatState> {
@@ -21,7 +24,7 @@ export default class Chat extends Component<IChatPorps,IChatState> {
 
     state={
         msg:"",
-        inputValue:""
+        inputValue:"",
     }
 
     constructor(porps:IChatPorps){
@@ -38,6 +41,12 @@ export default class Chat extends Component<IChatPorps,IChatState> {
     sendMessage=(value:string)=>{
         connection.send("SendMessage",value);
         this.setState({inputValue:""});
+    }
+    componentWillUnmount(){
+        connection.stop();
+        this.setState = (state,callback)=>{
+            return;
+        };
     }
 
     render() {

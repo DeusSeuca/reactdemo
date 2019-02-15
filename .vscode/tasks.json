@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "type": "process",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/node_modules/react-app-rewired/bin/index.js",
+                "start"
+            ],
+            "options": {
+                "env": {
+                    "BROWSER": "none"
+                }
+            },
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
